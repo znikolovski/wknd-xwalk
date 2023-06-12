@@ -1,2 +1,5 @@
 mountpoints:
-  /: https://adobe.sharepoint.com/:f:/r/sites/HelixProjects/Shared%20Documents/sites/adobe/wknd
+  /:
+    url: https://author-p15404-e178638-cmstg.adobeaemcloud.com
+    type: markup
+    suffix: ".html"
