@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: https://author-p15404-e178638-cmstg.adobeaemcloud.com
+    url: author-p15404-e146221-cmstg.adobeaemcloud.com/content/wknd/
     type: markup
     suffix: ".html"
