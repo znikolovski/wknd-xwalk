@@ -2,4 +2,4 @@ mountpoints:
   /:
     url: https://author-p15404-e146221-cmstg.adobeaemcloud.com
     type: markup
-    suffix: "franklin.html?wcmmode=disabled"
+    suffix: ".franklin.html?wcmmode=disabled"
