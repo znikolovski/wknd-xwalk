@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: https://author-p15404-e146221-cmstg.adobeaemcloud.com/content/wknd-poc
+    url: https://author-p15404-e180989-cmstg.adobeaemcloud.com/content/wknd-poc
     type: markup
     suffix: ".franklin.html?wcmmode=disabled"
