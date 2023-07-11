@@ -83,7 +83,7 @@ function buildHeroBlock(main) {
 
 function cloneAttributes(target, source) {
   [...source.attributes].forEach( attr => { 
-  if (attr.nodeName !== 'itemtype')  target.setAttribute(attr.nodeName ,attr.nodeValue) 
+    target.setAttribute(attr.nodeName ,attr.nodeValue) 
   })
 }
 
