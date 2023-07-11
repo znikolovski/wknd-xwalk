@@ -73,10 +73,18 @@ function buildHeroBlock(main) {
   const picture = main.querySelector('main > div > p > picture');
   // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
+    const bgP = picture.closest('p');
+    cloneAttributes(bgP, picture);
     const section = document.createElement('div');
     section.append(buildBlock('hero', { elems: [picture, h1] }));
     main.prepend(section);
   }
+}
+
+function cloneAttributes(target, source) {
+  [...source.attributes].forEach( attr => { 
+  if (attr.nodeName !== 'itemtype')  target.setAttribute(attr.nodeName ,attr.nodeValue) 
+  })
 }
 
 /**
