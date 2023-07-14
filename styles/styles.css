@@ -94,7 +94,6 @@ h4, h5, h6 {
 h1 {
   font-weight: 400;
   margin-top: 27px;
-  color: red;
   margin-bottom: 13.5px;
   font-size: var(--heading-font-size-xxl);
 }
