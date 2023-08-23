@@ -1,0 +1,67 @@
+{
+  "groups": [
+    {
+      "title": "Franklin Components",
+      "id": "general",
+      "components": [{
+          "title": "Title",
+          "id": "title",
+          "plugins": {
+            "aem": {
+              "page":{
+                "resourceType": "core/franklin/components/title/v1/title",
+                "template": {
+                  "jcr:title": "Default Title"
+                }
+              }
+            }
+          },
+          "model": {
+            "uri": "",
+            "id": "title",
+            "fields": [{
+              "component": "select",
+              "name": "type",
+              "value": "h1",
+              "label": "Type",
+              "valueType": "string",
+              "options": [
+                {"name": "h1","value":"h1"},
+                {"name": "h2","value":"h2"},
+                {"name": "h3","value":"h3"},
+                {"name": "h4","value":"h4"},
+                {"name": "h5","value":"h5"},
+                {"name": "h6","value":"h6"}
+              ]
+            }]
+          }
+        },
+        {
+          "title": "Image",
+          "id": "image",
+          "plugins": {
+            "aem": {
+              "page":{
+                "resourceType": "core/franklin/components/image/v1/image",
+                "template": {
+                  "fileReference": "/content/dam/wknd-shared/en/magazine/arctic-surfing/camp-tent.jpg"
+                }
+              }
+            }
+          },
+          "model": {
+            "id": "image",
+            "uri": "",
+            "fields": [{ 
+              "component": "text-input",
+              "valueType": "string", 
+              "name": "alt", 
+              "value": "Default alt", 
+              "label": "Alt Text" 
+            }]
+          }
+        }
+      ]
+    }
+  ]
+}
