@@ -2,8 +2,8 @@
 Your project's description...
 
 ## Environments
-- Preview: https://main--wknd-crosswalk--bpauli.hlx.page/
-- Live: https://main--wknd-crosswalk--bpauli.hlx.live/
+- Preview: https://main--wknd-xwalk--adobe-rnd.hlx.page/
+- Live: https://main--wknd-xwalk--adobe-rnde.hlx.live/
 
 ## Installation
 
