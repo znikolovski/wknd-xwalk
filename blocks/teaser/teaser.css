@@ -10,14 +10,14 @@
 }
 
 /* teaser image */
-.teaser > div > div:first-child {
+.teaser > div:first-child > div {
     height: 40pc;
     max-height: 40pc;
     width: 100%;
 }
 
 /* teaser content */
-.teaser > div > div:last-child {
+.teaser > div:last-child > div {
     background-color: #fff;
     min-height: 180px;
     width: 75%;
