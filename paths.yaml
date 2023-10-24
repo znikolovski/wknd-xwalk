@@ -1,2 +1,4 @@
 mappings:
  - /content/wknd-xwalk/:/
+ - /content/wknd-xwalk/metadata:/metadata.json
+ - /content/wknd-xwalk/redirects:/redirects.json
