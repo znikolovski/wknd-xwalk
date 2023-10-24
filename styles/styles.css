@@ -198,7 +198,7 @@ a.button.secondary, button.secondary {
 
 body.activity main {
   display: grid;
-  grid-template-columns: auto minmax(25%,300px) minmax(75%,900px) auto;
+  grid-template-columns: auto min(25%,300px) min(75%,900px) auto;
   grid-template-areas:
     "bread bread bread bread"
     "hero hero hero hero"
