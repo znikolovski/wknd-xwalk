@@ -1,6 +1,5 @@
 import {
   sampleRUM,
-  buildBlock,
   getMetadata,
   loadHeader,
   loadFooter,
@@ -13,6 +12,9 @@ import {
   loadBlocks,
   loadCSS,
   toClassName,
+  buildBlock,
+  decorateBlock,
+  readBlockConfig,
 } from './lib-franklin.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -68,23 +70,31 @@ export function createTag(tag, attributes, children) {
   return element;
 }
 
-function buildHeroBlock(main) {
-  const h1 = main.querySelector('main > div > h1');
-  const picture = main.querySelector('main > div > p > picture');
-  // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
-    const bgP = picture.closest('p');
-    cloneAttributes(picture, bgP);
+function buildTabs(main) {
+  const tabs = [...main.querySelectorAll(':scope > div')]
+    .map((section) => {
+      // section metadata not yet parsed
+      const sectionMeta = section.querySelector('div.section-metadata');
+      if (sectionMeta) {
+        const meta = readBlockConfig(sectionMeta);
+        return [section, meta.tab];
+      }
+    })
+    .filter((el) => !!el);
+  if (tabs.length) {
     const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
-    main.prepend(section);
+    section.className = 'section';
+    const ul = document.createElement('ul');
+    ul.append(...tabs
+      .map(([,tab]) => {
+        const li = document.createElement('li');
+        li.innerText = tab;
+        return li;
+      }));
+    const tabsBlock = buildBlock('tabs', [[ul]]);
+    section.append(tabsBlock);
+    tabs[0][0].insertAdjacentElement('beforebegin', section);
   }
-}
-
-function cloneAttributes(target, source) {
-  [...source.attributes].forEach( attr => { 
-    target.setAttribute(attr.nodeName ,attr.nodeValue) 
-  })
 }
 
 /**
@@ -93,7 +103,7 @@ function cloneAttributes(target, source) {
  */
 function buildAutoBlocks(main) {
   try {
-    buildHeroBlock(main);
+    buildTabs(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -162,7 +172,6 @@ export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
-
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);

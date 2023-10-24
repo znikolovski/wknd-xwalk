@@ -38,13 +38,10 @@ export function createTabs($block) {
     /** @type TabInfo */
     const tab = tabs.find((t) => t.name === name);
     if (tab) {
-      const $el = document.createElement('div');
-      $el.classList.add('tab-item');
-      $el.append(...$tabContent.children);
-      $el.classList.add('hidden');
-      $container.insertBefore($el, $wrapper);
-      $tabContent.remove();
-      tab.$content = $el;
+      $tabContent.classList.add('tab-item', 'hidden');
+      $tabContent.classList.remove('section');
+      $container.append($tabContent);
+      tab.$content = $tabContent;
     }
   });
   return tabs;
@@ -57,9 +54,9 @@ export default function decorate($block) {
   const tabs = createTabs($block);
 
   // move the tab riders in front
-  const $wrapper = $block.parentElement;
-  const $container = $wrapper.parentElement;
-  $container.insertBefore($wrapper, $container.firstElementChild);
+  //const $wrapper = $block.parentElement;
+  //const $container = $wrapper.parentElement;
+  //$container.insertBefore($wrapper, $container.firstElementChild);
 
   tabs.forEach((tab, index) => {
     const $button = document.createElement('button');

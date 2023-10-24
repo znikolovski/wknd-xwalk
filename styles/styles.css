@@ -198,11 +198,11 @@ a.button.secondary, button.secondary {
 
 body.activity main {
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: auto minmax(25%,300px) minmax(75%,900px) auto;
   grid-template-areas:
-    "bread bread"
-    "hero hero"
-    "left main";
+    "bread bread bread bread"
+    "hero hero hero hero"
+    "padleft left main padright";
 }
 
 main input {

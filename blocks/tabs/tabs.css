@@ -28,3 +28,7 @@
     background-color: #202020;
     color: #fff;
 }
+
+.activity main .tabs-container {
+    grid-area: main;
+}

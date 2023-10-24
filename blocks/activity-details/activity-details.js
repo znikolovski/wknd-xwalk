@@ -12,7 +12,14 @@ export default function decorate(block) {
     const dd = document.createElement('dd');
     dt.append(...row.firstElementChild.childNodes);
     dd.append(...row.lastElementChild.childNodes);
+    copyAttributes(row, dt);
     dl.append(dt, dd);
   });
   block.replaceChildren(dl);
+}
+
+function copyAttributes(from, to) {
+  [...from.attributes].forEach(({ nodeName, nodeValue }) => {
+    to.setAttribute(nodeName, nodeValue);
+  });
 }
