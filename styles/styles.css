@@ -205,6 +205,10 @@ body.activity main {
     "padleft left main padright";
 }
 
+body.activity main .section:first-child {
+  grid-area: hero;
+}
+
 main input {
   font-size: 1.25rem;
   width: 100%;
