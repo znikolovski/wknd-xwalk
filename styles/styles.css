@@ -205,8 +205,16 @@ body.activity main {
     "padleft left main padright";
 }
 
+body.activity main .section {
+  grid-area: main;
+}
+
 body.activity main .section:first-child {
   grid-area: hero;
+}
+
+body.activity main .section:nth-child(2) {
+  grid-area: left;
 }
 
 main input {
