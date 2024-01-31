@@ -1,6 +1,5 @@
 import {
   sampleRUM,
-  buildBlock,
   getAllMetadata,
   getMetadata,
   loadHeader,
@@ -49,6 +48,10 @@ window.hlx.plugins.add('experimentation', {
   load: 'eager',
   url: '/plugins/experimentation/src/index.js',
 });
+
+export function getSiteRoot(level = 3, path = window.location.pathname) {
+  return path.split(/[/.]/, level).join('/');
+}
 
 /**
  * Determine if we are serving content for the block-library, if so don't load the header or footer
